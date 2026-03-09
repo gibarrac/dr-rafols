@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Dr. Claudio Rafols — Cirujano de Cadera & Rodilla</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --ink:    #141810;
+    --pine:   #1C3829;
+    --forest: #2D5A3D;
+    --sage:   #4A7C59;
+    --mist:   #EEF2ED;
+    --cream:  #F9F7F3;
+    --gold:   #B8935A;
+    --warm:   #6B6560;
+    --border: rgba(28,56,41,0.12);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    overflow-x: hidden;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* ─── TYPOGRAPHY ─────────────────────────────── */
+  .serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+  h1,h2,h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; line-height: 1.1; }
+  h1 { font-size: clamp(3rem, 7vw, 6.5rem); }
+  h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
+  h3 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); }
+
+  /* ─── NAV ─────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 4vw;
+    background: rgba(249,247,243,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    transition: all .3s;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: .04em;
+    color: var(--pine);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links {
+    display: flex; align-items: center; gap: 2.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: .82rem; font-weight: 400; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--warm);
+    text-decoration: none; transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--pine); }
+  .nav-cta {
+    background: var(--pine); color: white !important;
+    padding: .55rem 1.4rem; border-radius: 2px;
+    font-weight: 500 !important; letter-spacing: .06em !important;
+  }
+  .nav-cta:hover { background: var(--forest) !important; color: white !important; }
+  .lang-toggle {
+    display: flex; gap: .3rem; font-size: .75rem;
+    font-weight: 500; letter-spacing: .1em;
+  }
+  .lang-btn {
+    background: none; border: 1px solid var(--border);
+    color: var(--warm); cursor: pointer; padding: .2rem .55rem;
+    border-radius: 2px; font-family: 'DM Sans', sans-serif;
+    transition: all .2s;
+  }
+  .lang-btn.active { background: var(--pine); color: white; border-color: var(--pine); }
+
+  /* ─── HERO ────────────────────────────────────── */
+  #hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+    overflow: hidden;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 6rem 4vw 6rem 6vw;
+    position: relative;
+  }
+  .hero-eyebrow {
+    font-size: .78rem; font-weight: 500; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 1.6rem;
+    display: flex; align-items: center; gap: .8rem;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block; width: 32px; height: 1px; background: var(--gold);
+  }
+  .hero-title { color: var(--pine); margin-bottom: 1.8rem; }
+  .hero-title em { font-style: italic; color: var(--sage); }
+  .hero-subtitle {
+    font-size: 1.05rem; color: var(--warm); line-height: 1.75;
+    max-width: 480px; margin-bottom: 3rem; font-weight: 300;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--pine); color: white;
+    padding: .9rem 2.2rem; border-radius: 2px; text-decoration: none;
+    font-size: .85rem; font-weight: 500; letter-spacing: .06em;
+    transition: all .25s; border: 2px solid var(--pine);
+  }
+  .btn-primary:hover { background: var(--forest); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(28,56,41,.25); }
+  .btn-outline {
+    background: transparent; color: var(--pine);
+    padding: .9rem 2.2rem; border-radius: 2px; text-decoration: none;
+    font-size: .85rem; font-weight: 500; letter-spacing: .06em;
+    border: 2px solid var(--pine); transition: all .25s;
+  }
+  .btn-outline:hover { background: var(--pine); color: white; }
+  .hero-right {
+    position: relative; background: var(--pine);
+    display: flex; align-items: flex-end;
+    overflow: hidden;
+  }
+  .hero-image-placeholder {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 1rem;
+    background: linear-gradient(160deg, #1C3829 0%, #2D5A3D 60%, #1C3829 100%);
+    position: relative;
+  }
+  .hero-image-placeholder::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 60% 40%, rgba(74,124,89,.3) 0%, transparent 65%);
+  }
+  .hero-initials {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12rem; font-weight: 300;
+    color: rgba(255,255,255,.06); line-height: 1;
+    position: absolute; bottom: -1rem; right: -1rem;
+    pointer-events: none;
+  }
+  .hero-badge {
+    position: absolute; bottom: 2.5rem; left: -1.5rem;
+    background: var(--cream); padding: 1.2rem 1.6rem;
+    border-left: 3px solid var(--gold); box-shadow: 0 12px 40px rgba(0,0,0,.12);
+  }
+  .hero-badge .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem; font-weight: 300; color: var(--pine); line-height: 1;
+  }
+  .hero-badge .label {
+    font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--warm);
+  }
+  .hero-tag {
+    position: absolute; top: 3rem; right: 2rem;
+    background: rgba(255,255,255,.08); backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,.15);
+    color: rgba(255,255,255,.85);
+    padding: .6rem 1.1rem; border-radius: 20px;
+    font-size: .75rem; letter-spacing: .08em; text-transform: uppercase;
+  }
+
+  /* ─── STATS ───────────────────────────────────── */
+  #stats {
+    background: var(--pine);
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+  .stat-item {
+    padding: 2.8rem 2.5rem;
+    border-right: 1px solid rgba(255,255,255,.1);
+    text-align: center;
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem; font-weight: 300; color: white; line-height: 1;
+    margin-bottom: .4rem;
+  }
+  .stat-num span { color: var(--gold); }
+  .stat-label {
+    font-size: .75rem; color: rgba(255,255,255,.55);
+    letter-spacing: .08em; text-transform: uppercase; line-height: 1.5;
+  }
+
+  /* ─── SECTIONS ────────────────────────────────── */
+  section { padding: 7rem 6vw; }
+  .section-label {
+    font-size: .75rem; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--gold); font-weight: 500;
+    display: flex; align-items: center; gap: .8rem; margin-bottom: 1.2rem;
+  }
+  .section-label::before {
+    content: ''; display: block; width: 24px; height: 1px; background: var(--gold);
+  }
+  .section-title { color: var(--pine); margin-bottom: 1.5rem; }
+  .section-sub { color: var(--warm); max-width: 560px; font-weight: 300; font-size: 1.05rem; line-height: 1.75; }
+
+  /* ─── ABOUT ───────────────────────────────────── */
+  #about { background: var(--mist); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1.1fr;
+    gap: 6rem; align-items: center; margin-top: 4rem;
+  }
+  .about-credentials {
+    display: flex; flex-direction: column; gap: 1rem;
+    margin-top: 2.5rem;
+  }
+  .credential-item {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding: 1rem 1.2rem;
+    background: white; border-left: 3px solid var(--sage);
+  }
+  .credential-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: .1rem; }
+  .credential-text { font-size: .9rem; color: var(--warm); line-height: 1.5; }
+  .credential-text strong { color: var(--pine); font-weight: 500; display: block; margin-bottom: .2rem; }
+  .about-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-style: italic; color: var(--pine);
+    line-height: 1.45; margin-bottom: 1.5rem;
+  }
+  .about-quote::before { content: '\201C'; color: var(--gold); font-size: 4rem; line-height: 0; vertical-align: -1rem; margin-right: .2rem; }
+  .about-body { color: var(--warm); line-height: 1.85; font-weight: 300; margin-bottom: 2rem; }
+  .memberships {
+    display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.5rem;
+  }
+  .membership-tag {
+    font-size: .72rem; letter-spacing: .08em; text-transform: uppercase;
+    border: 1px solid var(--border); padding: .35rem .8rem;
+    color: var(--sage); background: white;
+  }
+
+  /* ─── SERVICES ────────────────────────────────── */
+  #services { background: var(--cream); }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px; margin-top: 4rem;
+    background: var(--border);
+  }
+  .service-card {
+    background: var(--cream); padding: 2.8rem 2.4rem;
+    transition: all .3s; cursor: default;
+    position: relative; overflow: hidden;
+  }
+  .service-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 3px; background: var(--sage); transform: scaleX(0);
+    transform-origin: left; transition: transform .4s;
+  }
+  .service-card:hover { background: var(--pine); }
+  .service-card:hover::after { transform: scaleX(1); }
+  .service-card:hover .service-num,
+  .service-card:hover .service-title,
+  .service-card:hover .service-desc { color: white; }
+  .service-card:hover .service-num { color: var(--gold); }
+  .service-card:hover .service-link { color: rgba(255,255,255,.6); }
+  .service-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: .85rem; color: var(--gold);
+    letter-spacing: .15em; margin-bottom: 1.5rem; display: block;
+    transition: color .3s;
+  }
+  .service-title { color: var(--pine); margin-bottom: 1rem; font-size: 1.5rem; transition: color .3s; }
+  .service-desc { font-size: .9rem; color: var(--warm); line-height: 1.75; font-weight: 300; transition: color .3s; }
+  .service-link {
+    display: inline-block; margin-top: 1.5rem;
+    font-size: .78rem; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--sage); text-decoration: none; transition: color .3s;
+  }
+
+  /* ─── SYMPTOM CALCULATOR ──────────────────────── */
+  #calculator { background: var(--pine); color: white; }
+  #calculator .section-title { color: white; }
+  #calculator .section-sub { color: rgba(255,255,255,.6); }
+  .calc-container {
+    max-width: 780px; margin: 4rem auto 0;
+    background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+    padding: 3rem;
+  }
+  .calc-step { display: none; }
+  .calc-step.active { display: block; }
+  .calc-question {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem; font-weight: 400; color: white;
+    margin-bottom: 2rem; line-height: 1.3;
+  }
+  .calc-options { display: flex; flex-direction: column; gap: .8rem; }
+  .calc-option {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.15);
+    color: rgba(255,255,255,.8);
+    padding: 1rem 1.5rem;
+    cursor: pointer; text-align: left;
+    font-family: 'DM Sans', sans-serif; font-size: .95rem;
+    transition: all .2s; display: flex; justify-content: space-between; align-items: center;
+  }
+  .calc-option:hover, .calc-option.selected {
+    background: rgba(255,255,255,.15);
+    border-color: rgba(255,255,255,.4); color: white;
+  }
+  .calc-option.selected::after { content: '✓'; color: var(--gold); }
+  .calc-progress {
+    display: flex; gap: .5rem; margin-bottom: 2.5rem;
+  }
+  .calc-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: rgba(255,255,255,.2); transition: background .3s;
+  }
+  .calc-dot.done { background: var(--gold); }
+  .calc-nav { display: flex; gap: 1rem; margin-top: 2rem; justify-content: flex-end; }
+  .calc-btn {
+    background: none; border: 1px solid rgba(255,255,255,.3);
+    color: white; padding: .7rem 1.8rem; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; font-size: .85rem;
+    letter-spacing: .06em; transition: all .2s;
+  }
+  .calc-btn.primary { background: var(--gold); border-color: var(--gold); color: var(--pine); font-weight: 500; }
+  .calc-btn:hover { background: rgba(255,255,255,.12); }
+  .calc-btn.primary:hover { background: #c9a46b; }
+  .calc-result { display: none; }
+  .calc-result.active { display: block; }
+  .result-level {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem; font-weight: 300; margin-bottom: 1rem;
+  }
+  .result-green { color: #7ECB8F; }
+  .result-yellow { color: #F0C060; }
+  .result-red { color: #E07070; }
+  .result-text { color: rgba(255,255,255,.75); line-height: 1.75; margin-bottom: 2rem; font-weight: 300; }
+
+  /* ─── SECOND OPINION ──────────────────────────── */
+  #second-opinion { background: var(--mist); }
+  .opinion-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; margin-top: 4rem; align-items: start; }
+  .opinion-steps { display: flex; flex-direction: column; gap: 0; }
+  .opinion-step {
+    display: flex; gap: 1.5rem;
+    padding: 1.8rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .opinion-step:last-child { border-bottom: none; }
+  .step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; color: var(--gold); line-height: 1; flex-shrink: 0; width: 2rem;
+  }
+  .step-content h4 { font-family: 'DM Sans', sans-serif; font-weight: 500; margin-bottom: .4rem; color: var(--pine); }
+  .step-content p { font-size: .9rem; color: var(--warm); line-height: 1.65; font-weight: 300; }
+  .opinion-form { background: white; padding: 2.5rem; border-top: 3px solid var(--pine); }
+  .opinion-form h3 { font-size: 1.6rem; color: var(--pine); margin-bottom: 1.5rem; }
+  .form-group { margin-bottom: 1.2rem; }
+  .form-group label {
+    display: block; font-size: .75rem; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--warm);
+    margin-bottom: .5rem; font-weight: 500;
+  }
+  .form-group input, .form-group textarea, .form-group select {
+    width: 100%; border: 1px solid var(--border);
+    background: var(--cream); padding: .8rem 1rem;
+    font-family: 'DM Sans', sans-serif; font-size: .9rem; color: var(--ink);
+    outline: none; transition: border-color .2s;
+    border-radius: 0;
+  }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--sage); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .file-upload {
+    border: 2px dashed var(--border); padding: 2rem;
+    text-align: center; cursor: pointer; transition: border-color .2s;
+    background: var(--mist);
+  }
+  .file-upload:hover { border-color: var(--sage); }
+  .file-upload-icon { font-size: 2rem; margin-bottom: .5rem; }
+  .file-upload-text { font-size: .85rem; color: var(--warm); }
+  .file-upload-text strong { color: var(--sage); }
+  .price-tag {
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--mist); padding: 1rem 1.2rem; margin-bottom: 1.2rem;
+  }
+  .price-tag span { font-size: .8rem; color: var(--warm); }
+  .price-tag strong { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--pine); }
+
+  /* ─── BLOG ────────────────────────────────────── */
+  #blog { background: var(--cream); }
+  .blog-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 4rem; }
+  .blog-card { background: white; overflow: hidden; transition: transform .3s; cursor: pointer; }
+  .blog-card:hover { transform: translateY(-6px); }
+  .blog-img {
+    height: 200px; background: var(--pine);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .blog-img-1 { background: linear-gradient(135deg, #1C3829 0%, #4A7C59 100%); }
+  .blog-img-2 { background: linear-gradient(135deg, #2D5A3D 0%, #1C3829 100%); }
+  .blog-img-3 { background: linear-gradient(135deg, #4A7C59 0%, #2D5A3D 100%); }
+  .blog-img-icon { font-size: 3.5rem; opacity: .4; }
+  .blog-category {
+    position: absolute; top: 1rem; left: 1rem;
+    background: var(--gold); color: white;
+    font-size: .65rem; letter-spacing: .1em; text-transform: uppercase;
+    padding: .3rem .7rem; font-weight: 500;
+  }
+  .blog-content { padding: 1.8rem; }
+  .blog-date { font-size: .75rem; color: var(--gold); letter-spacing: .08em; text-transform: uppercase; margin-bottom: .6rem; }
+  .blog-title { font-size: 1.2rem; color: var(--pine); margin-bottom: .8rem; line-height: 1.3; }
+  .blog-excerpt { font-size: .88rem; color: var(--warm); line-height: 1.7; font-weight: 300; }
+  .blog-read-more { display: inline-block; margin-top: 1rem; font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: var(--sage); text-decoration: none; }
+
+  /* ─── TESTIMONIALS ────────────────────────────── */
+  #testimonials { background: var(--mist); }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 4rem; }
+  .testimonial-card { background: white; padding: 2rem; position: relative; }
+  .testimonial-card::before {
+    content: '\201C';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem; color: var(--mist);
+    position: absolute; top: .5rem; left: 1.2rem; line-height: 1;
+  }
+  .testimonial-text { font-size: .95rem; color: var(--warm); line-height: 1.75; font-weight: 300; margin-bottom: 1.5rem; font-style: italic; position: relative; z-index: 1; }
+  .testimonial-author { display: flex; align-items: center; gap: .8rem; }
+  .author-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--pine); display: flex; align-items: center; justify-content: center;
+    color: white; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;
+  }
+  .author-name { font-weight: 500; font-size: .9rem; color: var(--pine); }
+  .author-detail { font-size: .78rem; color: var(--warm); }
+  .stars { color: var(--gold); font-size: .8rem; letter-spacing: .1em; margin-bottom: .6rem; }
+
+  /* ─── BOOKING ─────────────────────────────────── */
+  #booking { background: var(--pine); color: white; }
+  #booking .section-label { color: var(--gold); }
+  #booking .section-title { color: white; }
+  #booking .section-sub { color: rgba(255,255,255,.6); }
+  .booking-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 6rem; margin-top: 4rem; align-items: start; }
+  .booking-info { display: flex; flex-direction: column; gap: 2.5rem; }
+  .booking-info-item { border-left: 2px solid var(--gold); padding-left: 1.4rem; }
+  .booking-info-item h4 { color: white; font-family: 'DM Sans', sans-serif; font-weight: 500; margin-bottom: .4rem; }
+  .booking-info-item p { color: rgba(255,255,255,.55); font-size: .9rem; line-height: 1.65; font-weight: 300; }
+  .booking-form { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); padding: 2.5rem; }
+  .booking-form .form-group label { color: rgba(255,255,255,.5); }
+  .booking-form input, .booking-form select, .booking-form textarea {
+    background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.15);
+    color: white;
+  }
+  .booking-form input::placeholder { color: rgba(255,255,255,.3); }
+  .booking-form input:focus, .booking-form select:focus, .booking-form textarea:focus { border-color: var(--gold); }
+  .booking-form select option { background: var(--pine); }
+  .btn-gold {
+    background: var(--gold); color: var(--pine);
+    padding: 1rem 2.5rem; border: none; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; font-size: .9rem;
+    font-weight: 500; letter-spacing: .06em; width: 100%;
+    transition: all .25s; margin-top: .5rem;
+  }
+  .btn-gold:hover { background: #c9a46b; transform: translateY(-1px); }
+
+  /* ─── FOOTER ──────────────────────────────────── */
+  footer {
+    background: var(--ink); color: rgba(255,255,255,.4);
+    padding: 3rem 6vw;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1.5rem;
+  }
+  footer .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; color: rgba(255,255,255,.7);
+  }
+  footer .footer-logo span { color: var(--gold); }
+  footer nav { display: flex; gap: 2rem; background: none; position: static; border: none; padding: 0; }
+  footer nav a { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.35); text-decoration: none; transition: color .2s; }
+  footer nav a:hover { color: rgba(255,255,255,.7); }
+  .footer-copy { font-size: .75rem; }
+
+  /* ─── DIVIDER ─────────────────────────────────── */
+  .divider { display: flex; align-items: center; gap: 1.5rem; margin: 1rem 0; }
+  .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .divider-text { font-size: .72rem; letter-spacing: .15em; text-transform: uppercase; color: var(--warm); }
+
+  /* ─── ANIMATIONS ──────────────────────────────── */
+  .fade-up { opacity: 0; transform: translateY(30px); transition: opacity .7s, transform .7s; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* ─── MOBILE ──────────────────────────────────── */
+  @media (max-width: 900px) {
+    #hero { grid-template-columns: 1fr; }
+    .hero-right { min-height: 50vw; }
+    .hero-badge { left: 1rem; }
+    #stats { grid-template-columns: repeat(2, 1fr); }
+    .stat-item:nth-child(2) { border-right: none; }
+    .about-grid, .opinion-grid, .booking-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .services-grid, .blog-grid, .testimonials-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    section { padding: 5rem 5vw; }
+  }
+
+  /* ─── LANGUAGE SWITCHING ──────────────────────── */
+  [data-lang="en"] { display: none; }
+  body.lang-en [data-lang="es"] { display: none; }
+  body.lang-en [data-lang="en"] { display: revert; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Dr. Rafols <span>·</span> Cirujano</a>
+  <ul class="nav-links">
+    <li><a href="#about" data-lang="es">Sobre mí</a><a href="#about" data-lang="en">About</a></li>
+    <li><a href="#services" data-lang="es">Servicios</a><a href="#services" data-lang="en">Services</a></li>
+    <li><a href="#calculator" data-lang="es">Evaluación</a><a href="#calculator" data-lang="en">Self-Check</a></li>
+    <li><a href="#second-opinion" data-lang="es">Segunda Opinión</a><a href="#second-opinion" data-lang="en">2nd Opinion</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#booking" class="nav-cta" data-lang="es">Reservar Cita</a><a href="#booking" class="nav-cta" data-lang="en">Book Appointment</a></li>
+  </ul>
+  <div class="lang-toggle">
+    <button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button>
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left fade-up">
+    <p class="hero-eyebrow" data-lang="es">Pionero en Artroscopía de Cadera · Chile</p>
+    <p class="hero-eyebrow" data-lang="en">Pioneer in Hip Arthroscopy · Chile</p>
+    <h1 class="hero-title" data-lang="es">El cirujano<br>que te<br><em>devuelve</em><br>el movimiento</h1>
+    <h1 class="hero-title" data-lang="en">The surgeon<br>who gives you<br><em>movement</em><br>back</h1>
+    <p class="hero-subtitle" data-lang="es">Más de 30 años operando caderas y rodillas. Socio fundador de Clínica MEDS. Referente latinoamericano en cirugía artroscópica de cadera.</p>
+    <p class="hero-subtitle" data-lang="en">Over 30 years of hip and knee surgery. Co-founder of Clínica MEDS. Latin American reference in hip arthroscopic surgery.</p>
+    <div class="hero-actions">
+      <a href="#booking" class="btn-primary" data-lang="es">Reservar Consulta</a>
+      <a href="#booking" class="btn-primary" data-lang="en">Book a Consultation</a>
+      <a href="#second-opinion" class="btn-outline" data-lang="es">Segunda Opinión</a>
+      <a href="#second-opinion" class="btn-outline" data-lang="en">Second Opinion</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-image-placeholder">
+      <div class="hero-initials">CR</div>
+      <div class="hero-tag" data-lang="es">🏅 Ex Médico Comité Olímpico de Chile</div>
+      <div class="hero-tag" data-lang="en">🏅 Former Chilean Olympic Committee Physician</div>
+      <div class="hero-badge" data-lang="es">
+        <div class="num">30<span>+</span></div>
+        <div class="label">Años de<br>Experiencia</div>
+      </div>
+      <div class="hero-badge" data-lang="en">
+        <div class="num">30<span>+</span></div>
+        <div class="label">Years of<br>Experience</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div id="stats">
+  <div class="stat-item fade-up">
+    <div class="stat-num">15<span>+</span></div>
+    <div class="stat-label" data-lang="es">Años Pionero<br>Artroscopía Cadera</div>
+    <div class="stat-label" data-lang="en">Years Pioneer<br>Hip Arthroscopy</div>
+  </div>
+  <div class="stat-item fade-up">
+    <div class="stat-num">20<span>+</span></div>
+    <div class="stat-label" data-lang="es">Años Artroscopía<br>de Rodilla</div>
+    <div class="stat-label" data-lang="en">Years Knee<br>Arthroscopy</div>
+  </div>
+  <div class="stat-item fade-up">
+    <div class="stat-num">6</div>
+    <div class="stat-label" data-lang="es">Membresías<br>Internacionales</div>
+    <div class="stat-label" data-lang="en">International<br>Memberships</div>
+  </div>
+  <div class="stat-item fade-up">
+    <div class="stat-num">1</div>
+    <div class="stat-label" data-lang="es">Pionero en Chile<br>Artroscopía Cadera</div>
+    <div class="stat-label" data-lang="en">Pioneer in Chile<br>Hip Arthroscopy</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-label" data-lang="es">Sobre el Dr. Rafols</p>
+  <p class="section-label" data-lang="en">About Dr. Rafols</p>
+  <div class="about-grid">
+    <div class="fade-up">
+      <h2 class="section-title" data-lang="es">Trayectoria que<br>marca diferencia</h2>
+      <h2 class="section-title" data-lang="en">A career that<br>makes a difference</h2>
+      <div class="about-credentials">
+        <div class="credential-item">
+          <div class="credential-icon">🎓</div>
+          <div class="credential-text">
+            <strong data-lang="es">Médico Cirujano, Universidad de Chile</strong>
+            <strong data-lang="en">Surgeon, University of Chile</strong>
+            <span data-lang="es">Especialista en Traumatología, Ortopedia y Cirugía Artroscópica</span>
+            <span data-lang="en">Specialist in Traumatology, Orthopedics & Arthroscopic Surgery</span>
+          </div>
+        </div>
+        <div class="credential-item">
+          <div class="credential-icon">🏥</div>
+          <div class="credential-text">
+            <strong data-lang="es">Socio Fundador, Clínica MEDS (1992)</strong>
+            <strong data-lang="en">Co-Founder, Clínica MEDS (1992)</strong>
+            <span data-lang="es">El centro de medicina deportiva más importante de Chile</span>
+            <span data-lang="en">The most important sports medicine center in Chile</span>
+          </div>
+        </div>
+        <div class="credential-item">
+          <div class="credential-icon">🏅</div>
+          <div class="credential-text">
+            <strong data-lang="es">Ex Médico, Comité Olímpico de Chile (1991–1996)</strong>
+            <strong data-lang="en">Former Physician, Chilean Olympic Committee (1991–1996)</strong>
+            <span data-lang="es">Centro de Alto Rendimiento · Deportistas de élite nacional</span>
+            <span data-lang="en">High-Performance Center · National elite athletes</span>
+          </div>
+        </div>
+        <div class="credential-item">
+          <div class="credential-icon">🔬</div>
+          <div class="credential-text">
+            <strong data-lang="es">Investigación en Biología Regenerativa</strong>
+            <strong data-lang="en">Regenerative Biology Research</strong>
+            <span data-lang="es">Células progenitoras, uso de plaquetas y cartílago articular</span>
+            <span data-lang="en">Progenitor cells, platelet therapy and articular cartilage</span>
+          </div>
+        </div>
+      </div>
+      <div class="memberships" style="margin-top:1.5rem">
+        <span class="membership-tag">ISAKOS</span>
+        <span class="membership-tag">ISHA</span>
+        <span class="membership-tag">SLARD</span>
+        <span class="membership-tag">ICRS</span>
+        <span class="membership-tag">SOCHMEDEP</span>
+        <span class="membership-tag">SCHOT</span>
+      </div>
+    </div>
+    <div class="fade-up">
+      <p class="about-quote" data-lang="es">No hay dos caderas iguales. Cada cirugía es una conversación entre el conocimiento acumulado y la historia singular de cada paciente.</p>
+      <p class="about-quote" data-lang="en">No two hips are alike. Every surgery is a conversation between accumulated knowledge and each patient's unique story.</p>
+      <p class="about-body" data-lang="es">El Dr. Claudio Rafols del Canto es reconocido como el pionero de la artroscopía de cadera en Chile. Su trayectoria combina la excelencia clínica con la investigación activa en técnicas de frontera, siendo invitado a exponer en cursos internacionales junto a referentes mundiales como el Dr. Hal Martin (Texas).</p>
+      <p class="about-body" data-lang="en">Dr. Claudio Rafols del Canto is recognized as the pioneer of hip arthroscopy in Chile. His career combines clinical excellence with active research in cutting-edge techniques, having been invited to present at international courses alongside world-leading experts like Dr. Hal Martin (Texas).</p>
+      <p class="about-body" data-lang="es">Su enfoque va más allá del quirófano: entiende que la cirugía es sólo un capítulo dentro de un proceso de recuperación que requiere acompañamiento, educación y confianza.</p>
+      <p class="about-body" data-lang="en">His approach goes beyond the operating room: he understands that surgery is just one chapter in a recovery process that requires support, education, and trust.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <p class="section-label" data-lang="es">Especialidades</p>
+  <p class="section-label" data-lang="en">Specialties</p>
+  <h2 class="section-title" data-lang="es">Cirugías que<br>transforman vidas</h2>
+  <h2 class="section-title" data-lang="en">Surgeries that<br>transform lives</h2>
+  <div class="services-grid">
+    <div class="service-card fade-up">
+      <span class="service-num">01</span>
+      <h3 class="service-title" data-lang="es">Artroscopía de Cadera</h3>
+      <h3 class="service-title" data-lang="en">Hip Arthroscopy</h3>
+      <p class="service-desc" data-lang="es">Técnica mínimamente invasiva para tratar el pinzamiento femoroacetabular, lesiones labrales y patología del compartimiento posterior. Pionero en Chile.</p>
+      <p class="service-desc" data-lang="en">Minimally invasive technique to treat femoroacetabular impingement, labral tears and posterior compartment pathology. Pioneer in Chile.</p>
+      <a href="#booking" class="service-link" data-lang="es">Reservar consulta →</a>
+      <a href="#booking" class="service-link" data-lang="en">Book consultation →</a>
+    </div>
+    <div class="service-card fade-up">
+      <span class="service-num">02</span>
+      <h3 class="service-title" data-lang="es">Artroscopía de Rodilla</h3>
+      <h3 class="service-title" data-lang="en">Knee Arthroscopy</h3>
+      <p class="service-desc" data-lang="es">Más de 20 años de experiencia en meniscos, ligamentos cruzados y lesiones de cartílago. Protocolos de recuperación optimizados para volver al deporte.</p>
+      <p class="service-desc" data-lang="en">Over 20 years of experience treating menisci, cruciate ligaments and cartilage injuries. Optimized recovery protocols for return to sport.</p>
+      <a href="#booking" class="service-link" data-lang="es">Reservar consulta →</a>
+      <a href="#booking" class="service-link" data-lang="en">Book consultation →</a>
+    </div>
+    <div class="service-card fade-up">
+      <span class="service-num">03</span>
+      <h3 class="service-title" data-lang="es">Reparación Capsular</h3>
+      <h3 class="service-title" data-lang="en">Capsular Repair</h3>
+      <p class="service-desc" data-lang="es">Procedimientos inéditos de reconstrucción capsular en casos complejos, incluyendo revisiones de cirugías previas realizadas en condiciones adversas.</p>
+      <p class="service-desc" data-lang="en">Innovative capsular reconstruction procedures in complex cases, including revisions of prior surgeries performed under adverse conditions.</p>
+      <a href="#booking" class="service-link" data-lang="es">Reservar consulta →</a>
+      <a href="#booking" class="service-link" data-lang="en">Book consultation →</a>
+    </div>
+    <div class="service-card fade-up">
+      <span class="service-num">04</span>
+      <h3 class="service-title" data-lang="es">Terapia Biológica</h3>
+      <h3 class="service-title" data-lang="en">Biological Therapy</h3>
+      <p class="service-desc" data-lang="es">Uso de células progenitoras, plaquetas y membranas inductoras de cartílago. Tratamientos en la frontera del conocimiento médico actual.</p>
+      <p class="service-desc" data-lang="en">Use of progenitor cells, platelet therapy and cartilage-inducing membranes. Treatments at the frontier of current medical knowledge.</p>
+      <a href="#booking" class="service-link" data-lang="es">Reservar consulta →</a>
+      <a href="#booking" class="service-link" data-lang="en">Book consultation →</a>
+    </div>
+    <div class="service-card fade-up">
+      <span class="service-num">05</span>
+      <h3 class="service-title" data-lang="es">Displasia de Cadera</h3>
+      <h3 class="service-title" data-lang="en">Hip Dysplasia</h3>
+      <p class="service-desc" data-lang="es">Evaluación y tratamiento de displasia acetabular en pacientes jóvenes. Abordaje conservador cuando es posible, quirúrgico cuando es necesario.</p>
+      <p class="service-desc" data-lang="en">Evaluation and treatment of acetabular dysplasia in young patients. Conservative approach when possible, surgical when necessary.</p>
+      <a href="#booking" class="service-link" data-lang="es">Reservar consulta →</a>
+      <a href="#booking" class="service-link" data-lang="en">Book consultation →</a>
+    </div>
+    <div class="service-card fade-up">
+      <span class="service-num">06</span>
+      <h3 class="service-title" data-lang="es">Segunda Opinión Digital</h3>
+      <h3 class="service-title" data-lang="en">Digital Second Opinion</h3>
+      <p class="service-desc" data-lang="es">Envía tus imágenes y síntomas. Recibe un informe personalizado en video del Dr. Rafols dentro de 72 horas, desde cualquier lugar del mundo.</p>
+      <p class="service-desc" data-lang="en">Send your imaging and symptoms. Receive a personalized video report from Dr. Rafols within 72 hours, from anywhere in the world.</p>
+      <a href="#second-opinion" class="service-link" data-lang="es">Saber más →</a>
+      <a href="#second-opinion" class="service-link" data-lang="en">Learn more →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SYMPTOM CALCULATOR -->
+<section id="calculator">
+  <p class="section-label" data-lang="es">Evaluación Inicial</p>
+  <p class="section-label" data-lang="en">Initial Assessment</p>
+  <h2 class="section-title" data-lang="es">¿Necesito<br>una consulta?</h2>
+  <h2 class="section-title" data-lang="en">Do I need<br>a consultation?</h2>
+  <p class="section-sub" data-lang="es">Responde 4 preguntas rápidas y recibe una orientación inicial sobre tu situación. No reemplaza la consulta médica, pero te ayuda a entender tu caso.</p>
+  <p class="section-sub" data-lang="en">Answer 4 quick questions and receive an initial guidance on your situation. It does not replace a medical consultation, but helps you understand your case.</p>
+
+  <div class="calc-container">
+    <div class="calc-progress" id="calc-progress">
+      <div class="calc-dot" id="dot-0"></div>
+      <div class="calc-dot" id="dot-1"></div>
+      <div class="calc-dot" id="dot-2"></div>
+      <div class="calc-dot" id="dot-3"></div>
+    </div>
+
+    <!-- Steps ES -->
+    <div class="calc-step active" id="step-0" data-lang="es">
+      <p class="calc-question">¿Qué zona te genera más molestia?</p>
+      <div class="calc-options">
+        <button class="calc-option" onclick="selectOption(0,0,this)">Cadera (ingle, glúteo o lateral del muslo)</button>
+        <button class="calc-option" onclick="selectOption(0,1,this)">Rodilla (frente, detrás o lateral)</button>
+        <button class="calc-option" onclick="selectOption(0,2,this)">Ambas articulaciones</button>
+        <button class="calc-option" onclick="selectOption(0,3,this)">No estoy seguro/a</button>
+      </div>
+    </div>
+    <div class="calc-step" id="step-1" data-lang="es">
+      <p class="calc-question">¿Cuánto tiempo llevas con este dolor?</p>
+      <div class="calc-options">
+        <button class="calc-option" onclick="selectOption(1,0,this)">Menos de 2 semanas (lesión reciente)</button>
+        <button class="calc-option" onclick="selectOption(1,1,this)">Entre 1 y 6 meses</button>
+        <button class="calc-option" onclick="selectOption(1,2,this)">Más de 6 meses</button>
+        <button class="calc-option" onclick="selectOption(1,3,this)">Años, con empeoramiento progresivo</button>
+      </div>
+    </div>
+    <div class="calc-step" id="step-2" data-lang="es">
+      <p class="calc-question">¿Cómo afecta tu calidad de vida?</p>
+      <div class="calc-options">
+        <button class="calc-option" onclick="selectOption(2,0,this)">Solo noto molestia al hacer deporte</button>
+        <button class="calc-option" onclick="selectOption(2,1,this)">Limita actividades cotidianas (escaleras, caminar)</button>
+        <button class="calc-option" onclick="selectOption(2,2,this)">Me despierta por las noches</button>
+        <button class="calc-option" onclick="selectOption(2,3,this)">No puedo trabajar o moverme con normalidad</button>
+      </div>
+    </div>
+    <div class="calc-step" id="step-3" data-lang="es">
+      <p class="calc-question">¿Has tenido diagnóstico o tratamiento previo?</p>
+      <div class="calc-options">
+        <button class="calc-option" onclick="selectOption(3,0,this)">No, es la primera vez que lo consulto</button>
+        <button class="calc-option" onclick="selectOption(3,1,this)">Sí, tengo diagnóstico pero sin cirugía</button>
+        <button class="calc-option" onclick="selectOption(3,2,this)">Me han operado antes de esta articulación</button>
+        <button class="calc-option" onclick="selectOption(3,3,this)">Me han indicado cirugía y quiero segunda opinión</button>
+      </div>
+    </div>
+
+    <!-- Result ES -->
+    <div class="calc-result" id="calc-result" data-lang="es">
+      <p id="result-level-es" class="result-level"></p>
+      <p id="result-text-es" class="result-text"></p>
+      <div class="calc-nav">
+        <button class="calc-btn" onclick="resetCalc()">Volver a evaluar</button>
+        <a href="#booking" class="calc-btn primary">Reservar Consulta</a>
+      </div>
+    </div>
+
+    <div class="calc-nav" id="calc-nav">
+      <button class="calc-btn" id="btn-prev" onclick="prevStep()" style="display:none">Anterior</button>
+      <button class="calc-btn primary" id="btn-next" onclick="nextStep()">Siguiente →</button>
+    </div>
+  </div>
+</section>
+
+<!-- SECOND OPINION -->
+<section id="second-opinion">
+  <p class="section-label" data-lang="es">Servicio Premium</p>
+  <p class="section-label" data-lang="en">Premium Service</p>
+  <h2 class="section-title" data-lang="es">Segunda Opinión<br>Digital</h2>
+  <h2 class="section-title" data-lang="en">Digital Second<br>Opinion</h2>
+  <p class="section-sub" data-lang="es">Desde cualquier país. Una respuesta experta, en tu idioma, con la autoridad del pionero de la artroscopía de cadera en Chile.</p>
+  <p class="section-sub" data-lang="en">From any country. An expert answer, in your language, with the authority of the pioneer of hip arthroscopy in Chile.</p>
+
+  <div class="opinion-grid">
+    <div class="fade-up">
+      <div class="opinion-steps">
+        <div class="opinion-step">
+          <span class="step-num">1</span>
+          <div class="step-content">
+            <h4 data-lang="es">Completa el formulario</h4>
+            <h4 data-lang="en">Complete the form</h4>
+            <p data-lang="es">Describe tus síntomas, historia clínica y qué diagnóstico o indicación quirúrgica has recibido.</p>
+            <p data-lang="en">Describe your symptoms, medical history, and what diagnosis or surgical indication you've received.</p>
+          </div>
+        </div>
+        <div class="opinion-step">
+          <span class="step-num">2</span>
+          <div class="step-content">
+            <h4 data-lang="es">Sube tus imágenes</h4>
+            <h4 data-lang="en">Upload your imaging</h4>
+            <p data-lang="es">Radiografías, resonancia magnética o informes médicos previos. Formatos DICOM, JPG o PDF.</p>
+            <p data-lang="en">X-rays, MRI or previous medical reports. DICOM, JPG or PDF formats accepted.</p>
+          </div>
+        </div>
+        <div class="opinion-step">
+          <span class="step-num">3</span>
+          <div class="step-content">
+            <h4 data-lang="es">Recibe tu informe en video</h4>
+            <h4 data-lang="en">Receive your video report</h4>
+            <p data-lang="es">El Dr. Rafols graba un video personalizado con su evaluación, en un plazo máximo de 72 horas.</p>
+            <p data-lang="en">Dr. Rafols records a personalized video with his evaluation within a maximum of 72 hours.</p>
+          </div>
+        </div>
+        <div class="opinion-step">
+          <span class="step-num">4</span>
+          <div class="step-content">
+            <h4 data-lang="es">Videollamada de seguimiento (opcional)</h4>
+            <h4 data-lang="en">Follow-up video call (optional)</h4>
+            <p data-lang="es">¿Tienes preguntas tras ver el informe? Agenda una sesión de 20 minutos para resolver tus dudas.</p>
+            <p data-lang="en">Have questions after viewing the report? Schedule a 20-minute session to resolve any doubts.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="opinion-form fade-up">
+      <h3 class="serif" data-lang="es">Solicitar Segunda Opinión</h3>
+      <h3 class="serif" data-lang="en">Request Second Opinion</h3>
+      <div class="price-tag">
+        <span data-lang="es">Informe en video personalizado</span>
+        <span data-lang="en">Personalized video report</span>
+        <strong data-lang="es">$80.000 CLP</strong>
+        <strong data-lang="en">USD $85</strong>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label data-lang="es">Nombre</label>
+          <label data-lang="en">Name</label>
+          <input type="text" placeholder="Tu nombre completo"/>
+        </div>
+        <div class="form-group">
+          <label data-lang="es">País / Ciudad</label>
+          <label data-lang="en">Country / City</label>
+          <input type="text" placeholder="Chile, Santiago"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="tu@email.com"/>
+      </div>
+      <div class="form-group">
+        <label data-lang="es">Articulación afectada</label>
+        <label data-lang="en">Affected joint</label>
+        <select>
+          <option data-lang="es">Cadera derecha</option>
+          <option data-lang="en">Right hip</option>
+          <option data-lang="es">Cadera izquierda</option>
+          <option data-lang="en">Left hip</option>
+          <option data-lang="es">Rodilla derecha</option>
+          <option data-lang="en">Right knee</option>
+          <option data-lang="es">Rodilla izquierda</option>
+          <option data-lang="en">Left knee</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label data-lang="es">Descripción del caso</label>
+        <label data-lang="en">Case description</label>
+        <textarea data-lang-placeholder-es="Describe tu síntoma, diagnóstico actual y qué te han indicado..." data-lang-placeholder-en="Describe your symptom, current diagnosis and what has been recommended..."></textarea>
+      </div>
+      <div class="form-group">
+        <label data-lang="es">Subir imágenes / informes</label>
+        <label data-lang="en">Upload images / reports</label>
+        <div class="file-upload">
+          <div class="file-upload-icon">📎</div>
+          <div class="file-upload-text" data-lang="es">Arrastra tus archivos aquí o <strong>haz clic para subir</strong><br><small>DICOM · JPG · PDF — Máx. 50MB</small></div>
+          <div class="file-upload-text" data-lang="en">Drag your files here or <strong>click to upload</strong><br><small>DICOM · JPG · PDF — Max. 50MB</small></div>
+        </div>
+      </div>
+      <button class="btn-gold" data-lang="es">Solicitar Segunda Opinión →</button>
+      <button class="btn-gold" data-lang="en">Request Second Opinion →</button>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <p class="section-label" data-lang="es">Educación Médica</p>
+  <p class="section-label" data-lang="en">Medical Education</p>
+  <h2 class="section-title" data-lang="es">Lo que nadie<br>te explica</h2>
+  <h2 class="section-title" data-lang="en">What nobody<br>explains to you</h2>
+  <div class="blog-grid">
+    <div class="blog-card fade-up">
+      <div class="blog-img blog-img-1">
+        <div class="blog-img-icon">🦴</div>
+        <span class="blog-category" data-lang="es">Cadera</span>
+        <span class="blog-category" data-lang="en">Hip</span>
+      </div>
+      <div class="blog-content">
+        <p class="blog-date">Febrero 2025</p>
+        <h3 class="blog-title" data-lang="es">Pinzamiento de Cadera: cuándo operar y cuándo no</h3>
+        <h3 class="blog-title" data-lang="en">Hip Impingement: when to operate and when not to</h3>
+        <p class="blog-excerpt" data-lang="es">El diagnóstico de FAI no es una indicación automática de cirugía. La decisión depende de factores que muchos cirujanos no consideran suficientemente.</p>
+        <p class="blog-excerpt" data-lang="en">An FAI diagnosis is not an automatic indication for surgery. The decision depends on factors that many surgeons do not consider sufficiently.</p>
+        <a href="#" class="blog-read-more" data-lang="es">Leer artículo →</a>
+        <a href="#" class="blog-read-more" data-lang="en">Read article →</a>
+      </div>
+    </div>
+    <div class="blog-card fade-up">
+      <div class="blog-img blog-img-2">
+        <div class="blog-img-icon">🏃</div>
+        <span class="blog-category" data-lang="es">Rodilla</span>
+        <span class="blog-category" data-lang="en">Knee</span>
+      </div>
+      <div class="blog-content">
+        <p class="blog-date">Enero 2025</p>
+        <h3 class="blog-title" data-lang="es">Vuelta al deporte tras cirugía de ligamento cruzado</h3>
+        <h3 class="blog-title" data-lang="en">Return to sport after ACL surgery</h3>
+        <p class="blog-excerpt" data-lang="es">La rehabilitación post-LCA ha cambiado radicalmente. Lo que creíamos sobre tiempos de recuperación estaba equivocado. Aquí los protocolos actuales.</p>
+        <p class="blog-excerpt" data-lang="en">Post-ACL rehabilitation has changed radically. What we believed about recovery times was wrong. Here are the current protocols.</p>
+        <a href="#" class="blog-read-more" data-lang="es">Leer artículo →</a>
+        <a href="#" class="blog-read-more" data-lang="en">Read article →</a>
+      </div>
+    </div>
+    <div class="blog-card fade-up">
+      <div class="blog-img blog-img-3">
+        <div class="blog-img-icon">🔬</div>
+        <span class="blog-category" data-lang="es">Innovación</span>
+        <span class="blog-category" data-lang="en">Innovation</span>
+      </div>
+      <div class="blog-content">
+        <p class="blog-date">Diciembre 2024</p>
+        <h3 class="blog-title" data-lang="es">Células progenitoras en cirugía de cadera: estado actual</h3>
+        <h3 class="blog-title" data-lang="en">Progenitor cells in hip surgery: current state</h3>
+        <p class="blog-excerpt" data-lang="es">La terapia biológica no es ciencia ficción. En MEDS llevamos años investigando y aplicando estas técnicas con resultados medibles.</p>
+        <p class="blog-excerpt" data-lang="en">Biological therapy is not science fiction. At MEDS we have been researching and applying these techniques for years with measurable results.</p>
+        <a href="#" class="blog-read-more" data-lang="es">Leer artículo →</a>
+        <a href="#" class="blog-read-more" data-lang="en">Read article →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <p class="section-label" data-lang="es">Pacientes</p>
+  <p class="section-label" data-lang="en">Patients</p>
+  <h2 class="section-title" data-lang="es">Lo que dicen<br>quienes confiaron</h2>
+  <h2 class="section-title" data-lang="en">What those who<br>trusted say</h2>
+  <div class="testimonials-grid">
+    <div class="testimonial-card fade-up">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"Me realizó una reparación capsular, salvando mi cadera intervenida por otros médicos en malos procedimientos. Es una eminencia en traumatología de caderas. Eternamente agradecida."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">M</div>
+        <div>
+          <p class="author-name">María G.</p>
+          <p class="author-detail" data-lang="es">Reparación capsular de cadera</p>
+          <p class="author-detail" data-lang="en">Hip capsular repair</p>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-up">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"Me operó en 2005 el ligamento cruzado anterior. Jamás pensé que volvería a jugar fútbol. Me he desarrollado normalmente en lo laboral y en lo deportivo durante 20 años."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">R</div>
+        <div>
+          <p class="author-name">Rodrigo M.</p>
+          <p class="author-detail" data-lang="es">LCA rodilla derecha</p>
+          <p class="author-detail" data-lang="en">Right knee ACL</p>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-up">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"Excelente traumatólogo, muy profesional y humano. Explica todo con claridad, jamás sentí que era un número más. El seguimiento posoperatorio fue impecable."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">C</div>
+        <div>
+          <p class="author-name">Carlos B.</p>
+          <p class="author-detail" data-lang="es">Artroscopía de cadera</p>
+          <p class="author-detail" data-lang="en">Hip arthroscopy</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="booking">
+  <p class="section-label" data-lang="es">Agenda</p>
+  <p class="section-label" data-lang="en">Schedule</p>
+  <h2 class="section-title" data-lang="es">Reservar<br>Consulta</h2>
+  <h2 class="section-title" data-lang="en">Book an<br>Appointment</h2>
+  <p class="section-sub" data-lang="es">Consulta presencial en Santiago o teleconsulta para pacientes fuera de Chile. Primera consulta con revisión completa de tu caso.</p>
+  <p class="section-sub" data-lang="en">In-person consultation in Santiago or teleconsultation for patients outside Chile. First consultation with complete review of your case.</p>
+
+  <div class="booking-grid">
+    <div class="booking-info fade-up">
+      <div class="booking-info-item">
+        <h4 data-lang="es">📍 Consulta Presencial</h4>
+        <h4 data-lang="en">📍 In-Person Consultation</h4>
+        <p data-lang="es">Clínica MEDS, Santiago de Chile<br>Lunes a viernes · Previa coordinación</p>
+        <p data-lang="en">Clínica MEDS, Santiago, Chile<br>Monday to Friday · By appointment</p>
+      </div>
+      <div class="booking-info-item">
+        <h4 data-lang="es">💻 Teleconsulta</h4>
+        <h4 data-lang="en">💻 Teleconsultation</h4>
+        <p data-lang="es">Para pacientes en otras ciudades o países. Videollamada segura con revisión de imágenes en tiempo real.</p>
+        <p data-lang="en">For patients in other cities or countries. Secure video call with real-time imaging review.</p>
+      </div>
+      <div class="booking-info-item">
+        <h4 data-lang="es">⏱ Tiempo de Respuesta</h4>
+        <h4 data-lang="en">⏱ Response Time</h4>
+        <p data-lang="es">Confirmación de disponibilidad en menos de 24 horas hábiles.</p>
+        <p data-lang="en">Availability confirmation within 24 business hours.</p>
+      </div>
+    </div>
+
+    <div class="booking-form fade-up">
+      <div class="form-row">
+        <div class="form-group">
+          <label data-lang="es">Nombre completo</label>
+          <label data-lang="en">Full name</label>
+          <input type="text" placeholder="Tu nombre"/>
+        </div>
+        <div class="form-group">
+          <label data-lang="es">Teléfono / WhatsApp</label>
+          <label data-lang="en">Phone / WhatsApp</label>
+          <input type="tel" placeholder="+56 9 XXXX XXXX"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="tu@email.com"/>
+      </div>
+      <div class="form-group">
+        <label data-lang="es">Tipo de consulta</label>
+        <label data-lang="en">Consultation type</label>
+        <select>
+          <option data-lang="es">Consulta presencial — Santiago</option>
+          <option data-lang="en">In-person — Santiago</option>
+          <option data-lang="es">Teleconsulta (otro país/ciudad)</option>
+          <option data-lang="en">Teleconsultation (other country/city)</option>
+          <option data-lang="es">Segunda opinión digital</option>
+          <option data-lang="en">Digital second opinion</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label data-lang="es">Articulación y motivo</label>
+        <label data-lang="en">Joint and reason</label>
+        <textarea placeholder="Ej: Dolor en cadera derecha hace 3 meses, resonancia pendiente..." style="min-height:80px"></textarea>
+      </div>
+      <button class="btn-gold" data-lang="es">Solicitar Cita →</button>
+      <button class="btn-gold" data-lang="en">Request Appointment →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Dr. Rafols <span>·</span> Cirujano de Cadera & Rodilla</div>
+  <nav>
+    <a href="#about" data-lang="es">Sobre mí</a>
+    <a href="#about" data-lang="en">About</a>
+    <a href="#services" data-lang="es">Servicios</a>
+    <a href="#services" data-lang="en">Services</a>
+    <a href="#second-opinion" data-lang="es">Segunda Opinión</a>
+    <a href="#second-opinion" data-lang="en">2nd Opinion</a>
+    <a href="#booking" data-lang="es">Contacto</a>
+    <a href="#booking" data-lang="en">Contact</a>
+  </nav>
+  <p class="footer-copy">© 2025 Dr. Claudio Rafols del Canto</p>
+</footer>
+
+<script>
+// ─── LANGUAGE ─────────────────────────────────────
+function setLang(lang) {
+  document.body.classList.toggle('lang-en', lang === 'en');
+  document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+}
+
+// ─── SCROLL ANIMATIONS ────────────────────────────
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// ─── SYMPTOM CALCULATOR ───────────────────────────
+let currentStep = 0;
+let answers = [null, null, null, null];
+const totalSteps = 4;
+
+function selectOption(step, val, el) {
+  answers[step] = val;
+  el.closest('.calc-options').querySelectorAll('.calc-option').forEach(b => b.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById('dot-' + step).classList.add('done');
+  document.getElementById('btn-next').style.opacity = '1';
+  document.getElementById('btn-next').disabled = false;
+}
+
+function nextStep() {
+  if (answers[currentStep] === null) return;
+  if (currentStep < totalSteps - 1) {
+    document.getElementById('step-' + currentStep).classList.remove('active');
+    currentStep++;
+    document.getElementById('step-' + currentStep).classList.add('active');
+    document.getElementById('btn-prev').style.display = 'block';
+    if (currentStep === totalSteps - 1) {
+      document.getElementById('btn-next').textContent = 'Ver resultado →';
+    }
+  } else {
+    showResult();
+  }
+}
+
+function prevStep() {
+  if (currentStep > 0) {
+    document.getElementById('step-' + currentStep).classList.remove('active');
+    currentStep--;
+    document.getElementById('step-' + currentStep).classList.add('active');
+    if (currentStep === 0) document.getElementById('btn-prev').style.display = 'none';
+    document.getElementById('btn-next').textContent = 'Siguiente →';
+  }
+}
+
+function showResult() {
+  document.getElementById('step-' + currentStep).classList.remove('active');
+  document.getElementById('calc-nav').style.display = 'none';
+  const result = document.getElementById('calc-result');
+  result.classList.add('active');
+
+  const score = answers.reduce((a, b) => a + b, 0);
+  let level, cls, text;
+  if (score <= 3) {
+    level = 'Situación leve — seguimiento recomendado'; cls = 'result-green';
+    text = 'Tus síntomas sugieren una situación inicial que puede manejarse con seguimiento médico y fisioterapia. Una consulta con el Dr. Rafols te permitirá descartar lesiones más profundas y definir el plan correcto.';
+  } else if (score <= 6) {
+    level = 'Situación moderada — consulta pronto'; cls = 'result-yellow';
+    text = 'Llevas un tiempo suficiente con estas molestias como para que una evaluación profesional sea importante. Esperar más puede complicar el tratamiento. Te recomendamos agendar una consulta en las próximas semanas.';
+  } else {
+    level = 'Situación importante — actúa ahora'; cls = 'result-red';
+    text = 'Tu caso tiene características que requieren evaluación especializada sin demora. El tiempo sin diagnóstico puede aumentar el daño articular. Agenda una consulta con el Dr. Rafols esta semana.';
+  }
+  document.getElementById('result-level-es').textContent = level;
+  document.getElementById('result-level-es').className = 'result-level ' + cls;
+  document.getElementById('result-text-es').textContent = text;
+}
+
+function resetCalc() {
+  answers = [null, null, null, null];
+  currentStep = 0;
+  document.querySelectorAll('.calc-step').forEach(s => s.classList.remove('active'));
+  document.getElementById('step-0').classList.add('active');
+  document.getElementById('calc-result').classList.remove('active');
+  document.getElementById('calc-nav').style.display = 'flex';
+  document.getElementById('btn-prev').style.display = 'none';
+  document.getElementById('btn-next').textContent = 'Siguiente →';
+  document.querySelectorAll('.calc-dot').forEach(d => d.classList.remove('done'));
+  document.querySelectorAll('.calc-option').forEach(o => o.classList.remove('selected'));
+}
+
+// Nav shadow on scroll
+window.addEventListener('scroll', () => {
+  document.querySelector('nav').style.boxShadow = window.scrollY > 20 ? '0 2px 20px rgba(0,0,0,.08)' : 'none';
+});
+</script>
+</body>
+</html>
